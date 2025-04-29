@@ -4,10 +4,8 @@ const masterMovieBox = document.getElementById('masterMovie-box')
 
 document.getElementById('search-btn').addEventListener('click', function() {
     const searchItem = document.getElementById('search-box').value
-    console.log(searchItem)
     fetch(`http://www.omdbapi.com/?s=${searchItem}&apikey=21488814&page=1`, {
         method: 'GET',
-        mode: 'no-cors'
     })
         .then(res => res.json())
         .then(data => {
@@ -40,7 +38,7 @@ document.getElementById('search-btn').addEventListener('click', function() {
             </div>
                 `
 
-            })
+            }).join(' ')
         masterMovieBox.innerHTML = movieTray
 
         })
