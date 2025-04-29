@@ -96,3 +96,83 @@ body {
     gap: 10%;
     /* border: 1px solid black; */
 }
+
+@media (max-width: 800px) {
+    .each-movies {
+        width: 90%;
+        height: 200px;
+        display: flex;
+        gap: 30px;
+        border-bottom: 2px solid #E5E7EB;
+        padding-bottom: 30px;
+    }
+    
+    .movieBanner {
+        width: 100%;
+        height: 100%;
+    }
+
+    .movieBanner-box {
+        width: 40%;
+    }
+    
+    .eachMovie-rightSegment {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5%;
+        /* border: 1px solid black; */
+    }
+    
+    .movie-NameBox {
+        display: flex;
+        align-items: center;
+    }
+    
+    .movie-NameBox > h2 {
+        font-size: 25px;
+    }
+    
+    .ratingImage {
+        margin-left: 25px;
+        margin-right: 10px;
+        width: 15px;
+        height: 15px;
+    }
+    
+    .movie-NameBox > p {
+        font-size: 15px;
+    }
+    
+    
+    
+    .movie-property {
+        display: flex;
+        gap: 12px;
+        font-size: 12px;
+        line-height: 20px; /* 166.667% */
+        margin-top: 0px;
+    }
+    
+    .remove-Btn {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        font-size: 12px;
+    }
+    
+    .movie-summery {
+        font-size: 14px;
+    }
+    
+    .movie-summery > span {
+       display: inline;
+       margin-top: 20px;
+    }
+    
+ 
+
+
+
+}

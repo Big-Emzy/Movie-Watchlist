@@ -21,7 +21,8 @@ nav > h1 {
     position: relative;
     color: #FFF;
     font-family: 'Inter',sans-serif;
-    font-size: 104px;
+    /* font-size: 104px; */
+    font-size: 6.5rem;
     font-weight: 800;
     line-height: 23.775px; /* 55.556% */
     letter-spacing: -1.926px;
@@ -139,3 +140,99 @@ main {
     margin-top: 20px;
     display: block;
 }
+
+
+@media (max-width: 800px) {
+    nav {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 30%;
+        justify-content: center;
+        align-items: flex-start;
+        height: 200px;
+        padding: 0px 30px;
+    }
+    
+    nav > h1 {
+        font-size: 50px;
+    }
+    
+    nav > a {
+        font-size: 25px;
+    }
+
+    #searchBoxContainer {
+        width: 90%;
+        height: 40px;
+        margin-top: 300px;
+        
+    }
+    
+    #search-box {
+        padding-left: 40px;
+        background-size: 20px 18px;
+        background-position: 10px 10px;
+    }
+    
+    #search-box::placeholder {
+        font-size: 18px;
+        font-weight: 500;
+        
+    }
+    
+    #search-btn {
+        font-size: 18px;
+    }
+
+    main {
+        margin-top: 130px;
+    }
+
+    #exploring-errorMsg {
+        display: none;
+    }
+    
+    #start-exploring {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 571px;
+        text-align: center;
+    }
+    
+    .show{
+        display: block;
+    }
+    
+    #error-msg {
+        display: flex;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        height: 571px;
+        text-align: center;
+    }
+    
+    #filmTray {
+        width: 90px;
+        height: 82px;
+        margin-bottom: 12px;
+    }
+    
+    #start-exploring > h2, #error-msg > h2 {
+        color: #DFDDDD;
+        font-family: 'Inter',sans-serif;
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 20px; /* 111.111% */
+    }
+    
+    #another-search {
+        margin-top: 20px;
+        display: block;
+    }
+
+
+     
+  }
