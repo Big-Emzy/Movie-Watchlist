@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* width: 550px; */
+    height: 442px;
+    padding: 0px 72px;
+    background-color: black;
+    background-image: url(/img/THJJRUhNlEc.png);
+    background-position: center;
+    background-size: cover;
+}
+
+nav > h1 {
+    position: relative;
+    color: #FFF;
+    font-family: 'Inter',sans-serif;
+    font-size: 104px;
+    font-weight: 800;
+    line-height: 23.775px; /* 55.556% */
+    letter-spacing: -1.926px;
+    
+}
+
+nav > a {
+    color: #FFF;
+    font-family: 'Inter',sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 20px; /* 142.857% */
+    text-decoration: none;
+}
+
+nav > a:hover {
+    cursor: pointer;
+}
+
+#searchBoxContainer {
+    display: flex;
+    width: 90%;
+    height: 62px;
+    position: absolute;
+    margin-top: 433px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    border:2px solid #D1D5DB;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    
+}
+
+#search-box {
+    width: 90%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding-left: 85px;
+    background-image: url(/img/search1.png);
+    background-repeat: no-repeat;
+    background-size: 29px 27px;
+    background-position: 36px 16px;
+    border: none
+    
+}
+
+#search-box::placeholder {
+    color: #6B7280;
+    font-family: 'Inter',sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    
+}
+
+#search-btn {
+    width: 20%;
+    color:  #374151;
+    font-family: 'Inter',sans-serif;
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-radius: 0px 6px 6px 0px;
+    border: #D1D5DB;
+}
+
+main {
+    margin-top: 110px;
+}
+
+#exploring-errorMsg {
+    display: none;
+}
+
+#start-exploring {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 571px;
+    text-align: center;
+}
+
+.show{
+    display: block;
+}
+
+#error-msg {
+    display: flex;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    height: 571px;
+    text-align: center;
+}
+
+#filmTray {
+    width: 90px;
+    height: 82px;
+    margin-bottom: 12px;
+}
+
+#start-exploring > h2, #error-msg > h2 {
+    color: #DFDDDD;
+    font-family: 'Inter',sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 20px; /* 111.111% */
+}
+
+#another-search {
+    margin-top: 20px;
+    display: block;
+}

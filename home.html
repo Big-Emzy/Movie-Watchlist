@@ -3,14 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Seach Movie</title>
     <link rel="stylesheet" href="/style.css">
-    <link rel="whachlist" href="/watchlist.html">
+    <link rel="watchlist" href="/watchlist.html">
+    <link rel="stylesheet" href="/watchlist.css">
 </head>
 <body>
     <nav>
-
+        <h1>Find your film</h1>
+        <div id="searchBoxContainer">
+            <input type="search" id="search-box" placeholder="Search for a movie">
+            <button id="search-btn">Search</button>
+        </div>
+        <a href="/watchlist.html">My Watchlist</a>
     </nav>
+    <main>
+        <div id="masterMovie-box">
+            <div class="each-movies">
+                <div>
+                    <img src="/img/blade.jpg" alt="movie banner" class="movieBanner">
+                </div>
+                <div class="eachMovie-rightSegment">
+                    <div class="movie-NameBox">  
+                        <h2>Blade Runner 2049</h2>
+                        <img src="/img/rateIcon.png" alt="rateIcon" class="ratingImage">
+                        <p>8.0</p>
+                    </div>
+                    <div class="movie-property">
+                        <p>164 min</p>
+                        <p>Action, Drama, Mystery</p>
+                        
+                        <button class="remove-Btn"><img src="/img/removeIcon.png" alt="deleteIcon">Remove</button>
+                    </div>
+                    <p class="movie-summery">Young Blade Runner K's discovery of a long-buried 
+                        <span> secret leads him to track down former Blade </span>
+                        <span> Runner Rick Deckard, who's been missin...</span>
+                    </p>    
+                </div>
+            </div>
+        </div>
+        <div id="exploring-errorMsg">
+            <div id="start-exploring">
+                <div>
+                    <img src="/img/film.png" alt="film tray backgroud" id="filmTray">
+                </div>    
+                <h2>Start exploring</h2>
+            </div>
+            <div id="error-msg">   
+                <h2>Unable to find what you're looking <span id="another-search">for. Please try another search.</span></h2>
+            </div>
+        </div>    
+    </main>
     <script src="/script.js"></script>
 </body>
 </html>
+
