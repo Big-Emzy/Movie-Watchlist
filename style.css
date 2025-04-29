@@ -64,7 +64,7 @@ nav > a:hover {
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     padding-left: 85px;
-    background-image: url(/img/search1.png);
+    background-image: url(img/search1.png);
     background-repeat: no-repeat;
     background-size: 29px 27px;
     background-position: 36px 16px;
@@ -234,6 +234,7 @@ main {
     }
 
 
+
      
   }
 
@@ -241,7 +242,7 @@ main {
     nav {
         gap: 20%;
         height: 130px;
-        padding: 0px 30px;
+        padding: 0px 15px;
     }
     
     nav > h1 {
