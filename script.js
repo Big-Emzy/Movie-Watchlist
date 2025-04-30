@@ -37,7 +37,7 @@ document.getElementById('search-btn').addEventListener('click', function() {
                 </div>
             </div>
                 `
-            masterMovieBox.innerHTML = movieTray
+            return masterMovieBox.innerHTML = movieTray
             
             })
 
