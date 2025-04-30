@@ -8,7 +8,7 @@ document.getElementById('search-btn').addEventListener('click', function() {
         method: 'GET',
     })
         .then(res => res.json())
-        .then(data => data.Search.map(movie => {
+        .then(data => data.Search.forEach(movie => {
                 movieTray +=  `
                             <div class="each-movies">
                                 <div class="movieBanner-box">
@@ -52,7 +52,7 @@ document.getElementById('search-btn').addEventListener('click', function() {
 //     method: 'GET'
 // })
 //     .then(res => res.json())
-//     .then(data => data.Search.map(movie => {
+//     .then(data => data.Search.forEach(movie => {
 //         movieTray +=  `
 //     <div class="each-movies">
 //         <div class="movieBanner-box">
