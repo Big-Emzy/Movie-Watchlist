@@ -1,6 +1,6 @@
 
 const masterMovieBox = document.getElementById('masterMovie-box')
-
+let movieTray = ''
 
 document.getElementById('search-btn').addEventListener('click', function() {
     const searchItem = document.getElementById('search-box').value
@@ -9,8 +9,8 @@ document.getElementById('search-btn').addEventListener('click', function() {
     })
         .then(res => res.json())
         .then(data => {
-           const movieTray = data.Search.map(movie => {
-                return `
+           data.Search.map(movie => {
+                movieTray +=  `
             <div class="each-movies">
                 <div class="movieBanner-box">
                     <img src="${movie.Poster}" alt="movie banner" class="movieBanner">
@@ -37,8 +37,9 @@ document.getElementById('search-btn').addEventListener('click', function() {
                 </div>
             </div>
                 `
+            return movieTray
+            })
 
-            }).join(' ')
         masterMovieBox.innerHTML = movieTray
 
         })
