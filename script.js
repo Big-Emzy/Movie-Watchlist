@@ -51,8 +51,7 @@ document.getElementById('search-btn').addEventListener('click', function() {
 
 
 fetch("http://www.omdbapi.com/?s=kill&apikey=21488814&page=50", {
-    method: 'GET',
-    mode: 'no-cors'
+    method: 'GET'
 })
     .then(res => res.json())
     .then(data => console.log(data.Search))
