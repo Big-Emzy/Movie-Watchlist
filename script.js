@@ -52,7 +52,7 @@
 
 
 let movieTray = ''
-fetch("http://www.omdbapi.com/?s=legend&apikey=21488814&page=50", {
+fetch("https://www.omdbapi.com/?s=legend&apikey=21488814&page=50", {
     method: 'GET'
 })
     .then(res => res.json())
