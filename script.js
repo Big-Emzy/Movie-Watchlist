@@ -1,6 +1,9 @@
+let movieTray = ''
+let savedPlaylist = []
 
 
 document.getElementById('search-btn').addEventListener('click', function() {
+    movieTray = ''
     const searchItem = document.getElementById('search-box')
     fetch(`https://www.omdbapi.com/?s=${searchItem.value}&apikey=21488814&page=1`, {
         method: 'GET'
@@ -12,12 +15,15 @@ document.getElementById('search-btn').addEventListener('click', function() {
     )
     
 )
-//searchItem.value = ''
+    searchItem.value = ''
+    document.getElementById('exploring-errorMsg').style.display = 'none'
+    
+    
 })
 
 
 
-let movieTray = ''
+
 const masterMovieBox = document.getElementById('masterMovie-box')
 function renderMovieDetails(movieId) {
     fetch(`https://www.omdbapi.com/?i=${movieId}&apikey=21488814`, {
@@ -41,8 +47,8 @@ function renderMovieDetails(movieId) {
                                     <p>${data.Runtime}</p>
                                     <p>${data.Genre}</p>
                                 </div>
-                                <div>
-                                    <button class="remove-Btn"><img src="img/removeIcon.png" alt="deleteIcon" class="removeBtn">Watchlist</button>
+                                <div class="AddButton" data-removeId="${data.imdbID}">
+                                    <button class="remove-Btn"><img src="img/add-Icon.png" alt="deleteIcon" class="removeBtn">Watchlist</button>
                                 </div>
                             </div>
                             <p class="movie-summery">${data.Plot}</p>    
@@ -55,6 +61,13 @@ function renderMovieDetails(movieId) {
     )
   
 }
+
+
+
+document.addEventListener('click', function(e) {
+    console.log(e.target.dataset)
+})
+
 
 
 
