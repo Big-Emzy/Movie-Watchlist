@@ -24,34 +24,34 @@ function renderMovieDetails(movieId) {
         method: "GET"
     })
         .then(res => res.json())
-        .then(data => [data].forEach(film => { 
-            movieTray +=  `
+        .then(data => {
+                movieTray +=  `
                     <div class="each-movies">
                         <div class="movieBanner-box">
-                            <img src="${film.Poster}" alt="movie banner" class="movieBanner">
+                            <img src="${data.Poster}" alt="movie banner" class="movieBanner">
                         </div>
                         <div class="eachMovie-rightSegment">
                             <div class="movie-NameBox">  
-                                <h2>${film.Title}</h2>
+                                <h2>${data.Title}</h2>
                                 <img src="img/rateIcon.png" alt="rateIcon" class="ratingImage">
-                                <p>${film.imdbRating}</p>
+                                <p>${data.imdbRating}</p>
                             </div>
                             <div class="movie-property">
                                 <div class="movie-minutes">
-                                    <p>${film.Runtime}</p>
-                                    <p>${film.Genre}</p>
+                                    <p>${data.Runtime}</p>
+                                    <p>${data.Genre}</p>
                                 </div>
                                 <div>
                                     <button class="remove-Btn"><img src="img/removeIcon.png" alt="deleteIcon" class="removeBtn">Watchlist</button>
                                 </div>
                             </div>
-                            <p class="movie-summery">${film.Plot}</p>    
+                            <p class="movie-summery">${data.Plot}</p>    
                         </div>
                     </div>
                         `
          return document.getElementById('masterMovie-box').innerHtml = movieTray    
-           //  return console.log(movieTray)         
-        })
+         //return console.log(movieTray)   
+        }      
     )
 }
 
@@ -60,7 +60,7 @@ function renderMovieDetails(movieId) {
 
 
 
-// let movieTray = ''
+//let movieTray = ''
 // fetch("https://www.omdbapi.com/?s=kill&apikey=21488814&page=1", {
 //     method: 'GET'
 // })
