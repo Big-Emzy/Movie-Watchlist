@@ -49,7 +49,7 @@ function renderMovieDetails(movieId) {
                         </div>
                     </div>
                         `
-         return masterMovieBox.innerHtml = movieTray
+         return masterMovieBox.innerHTML = movieTray
          //return console.log(movieTray)   
         }      
     )
