@@ -18,7 +18,7 @@ searchItem.value = ''
 
 
 let movieTray = ''
-
+const masterMovieBox = document.getElementById('masterMovie-box')
 function renderMovieDetails(movieId) {
     fetch(`https://www.omdbapi.com/?i=${movieId}&apikey=21488814`, {
         method: "GET"
@@ -49,7 +49,7 @@ function renderMovieDetails(movieId) {
                         </div>
                     </div>
                         `
-         return document.getElementById('masterMovie-box').innerHtml = movieTray    
+         return masterMovieBox.innerHtml = movieTray
          //return console.log(movieTray)   
         }      
     )
