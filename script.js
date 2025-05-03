@@ -12,7 +12,7 @@ document.getElementById('search-btn').addEventListener('click', function() {
     )
     
 )
-searchItem.value = ''
+//searchItem.value = ''
 })
 
 
@@ -53,6 +53,7 @@ function renderMovieDetails(movieId) {
          //return console.log(movieTray)   
         }      
     )
+  
 }
 
 
