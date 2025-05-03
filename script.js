@@ -1,9 +1,9 @@
 
-//const masterMovieBox = document.getElementById('masterMovie-box')
+const masterMovieBox = document.getElementById('masterMovie-box')
 let movieTray = ''
 
 document.getElementById('search-btn').addEventListener('click', function() {
-    const masterMovieBox = document.getElementById('masterMovie-box')
+    
     const searchItem = document.getElementById('search-box')
     fetch(`https://www.omdbapi.com/?s=${searchItem.value}&apikey=21488814&page=50`, {
         method: 'GET'
@@ -38,6 +38,7 @@ searchItem.value = ''
 
 
 function renderMovieDetails(movieId) {
+    
     fetch(`https://www.omdbapi.com/?i=${movieId}&apikey=21488814`, {
         method: "GET"
     })
