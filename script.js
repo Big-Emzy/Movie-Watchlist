@@ -24,7 +24,7 @@ function renderMovieDetails(movieId) {
         method: "GET"
     })
         .then(res => res.json())
-        .then(data => data.forEach(film => { 
+        .then(data => [data].forEach(film => { 
             movieTray +=  `
                     <div class="each-movies">
                         <div class="movieBanner-box">
@@ -49,7 +49,8 @@ function renderMovieDetails(movieId) {
                         </div>
                     </div>
                         `
-           return document.getElementById('masterMovie-box').innerHtml = movieTray             
+         return document.getElementById('masterMovie-box').innerHtml = movieTray    
+           //  return console.log(movieTray)         
         })
     )
 }
@@ -64,11 +65,11 @@ function renderMovieDetails(movieId) {
 //     method: 'GET'
 // })
 //     .then(res => res.json())
-//     .then(data => {data.Search.forEach(movie => {
+//     .then(data => data.Search.forEach(movie => {
 //         renderMovieDetails(movie.imdbID)
 //     }
     
-// )}
+// )
 
 // )
 
