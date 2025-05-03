@@ -1,5 +1,22 @@
 
 
+document.getElementById('search-btn').addEventListener('click', function() {
+    const searchItem = document.getElementById('search-box')
+    fetch(`https://www.omdbapi.com/?s=${searchItem.value}&apikey=21488814&page=1`, {
+        method: 'GET'
+    })
+        .then(res => res.json())
+        .then(data => data.Search.forEach(movie => {
+            renderMovieDetails(movie.imdbID)
+        }  
+    )
+    
+)
+searchItem.value = ''
+})
+
+
+
 let movieTray = ''
 
 function renderMovieDetails(movieId) {
@@ -36,22 +53,6 @@ function renderMovieDetails(movieId) {
         })
     )
 }
-
-
-document.getElementById('search-btn').addEventListener('click', function() {
-    const searchItem = document.getElementById('search-box')
-    fetch(`https://www.omdbapi.com/?s=${searchItem.value}&apikey=21488814&page=1`, {
-        method: 'GET'
-    })
-        .then(res => res.json())
-        .then(data => data.Search.forEach(movie => {
-            renderMovieDetails(movie.imdbID)
-        }  
-    )
-    
-)
-searchItem.value = ''
-})
 
 
 
