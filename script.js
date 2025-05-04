@@ -1,26 +1,25 @@
 let movieTray = ''
-let savedPlaylist = []
+//let savedPlaylist = []
+let savedPlaylist = JSON.parse(localStorage.getItem('movieSaved'))
+let searchBtn = document.getElementById('search-btn')
 
 
-document.getElementById('search-btn').addEventListener('click', function() {
-    movieTray = ''
-    const searchItem = document.getElementById('search-box')
-    fetch(`https://www.omdbapi.com/?s=${searchItem.value}&apikey=21488814&page=1`, {
-        method: 'GET'
-    })
-        .then(res => res.json())
-        .then(data => data.Search.forEach(movie => {
-            renderMovieDetails(movie.imdbID)
-        }  
+    searchBtn.addEventListener('click', function() {
+        movieTray = ''
+        const searchItem = document.getElementById('search-box')
+        fetch(`https://www.omdbapi.com/?s=${searchItem.value}&apikey=21488814&page=1`, {
+            method: 'GET'
+        })
+            .then(res => res.json())
+            .then(data => data.Search.forEach(movie => {
+                renderMovieDetails(movie.imdbID)
+            }  
+        )
+        
     )
-    
-)
-    searchItem.value = ''
-    document.getElementById('exploring-errorMsg').style.display = 'none'
-    
-    
-})
-
+        searchItem.value = ''
+        document.getElementById('exploring-errorMsg').style.display = 'none'   
+    })
 
 
 
@@ -47,44 +46,33 @@ function renderMovieDetails(movieId) {
                                     <p>${data.Runtime}</p>
                                     <p>${data.Genre}</p>
                                 </div>
-                                <div class="AddButton" data-removeId="${data.imdbID}">
-                                    <button class="remove-Btn"><img src="img/add-Icon.png" alt="deleteIcon" class="removeBtn">Watchlist</button>
+                                <div class="AddButton" id="${data.imdbID}">
+                                    <button class="remove-Btn"><img src="img/add-icon.png" alt="deleteIcon" class="removeBtn">Watchlist</button>
                                 </div>
                             </div>
                             <p class="movie-summery">${data.Plot}</p>    
                         </div>
                     </div>
                         `
-         return masterMovieBox.innerHTML = movieTray
-         //return console.log(movieTray)   
+         return masterMovieBox.innerHTML = movieTray  
         }      
     )
   
 }
 
 
-
 document.addEventListener('click', function(e) {
-    console.log(e.target.dataset)
+    const selectedMovieId = e.target.parentElement.id
+    if (e.target.parentElement.classList.contains('AddButton')) {
+        fetch(`https://www.omdbapi.com/?i=${selectedMovieId}&apikey=21488814`, {
+            method: "GET"
+        })
+            .then(res => res.json())
+            .then(data => {
+                savedPlaylist.unshift(data)
+                localStorage.setItem('movieSaved', JSON.stringify(savedPlaylist))
+            }
+        )        
+    }
 })
-
-
-
-
-
-
-
-//let movieTray = ''
-// fetch("https://www.omdbapi.com/?s=kill&apikey=21488814&page=1", {
-//     method: 'GET'
-// })
-//     .then(res => res.json())
-//     .then(data => data.Search.forEach(movie => {
-//         renderMovieDetails(movie.imdbID)
-//     }
-    
-// )
-
-// )
-
 
