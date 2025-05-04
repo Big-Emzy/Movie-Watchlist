@@ -20,7 +20,7 @@ retrievedData.forEach(savedMovie => {
                             <p>${savedMovie.Genre}</p>
                         </div>
                         <div class="AddButton" id="${savedMovie.imdbID}">
-                            <button class="remove-Btn"><img src="img/removeIcon.png" alt="deleteIcon" class="removeBtn">Watchlist</button>
+                            <button class="remove-Btn"><img src="img/removeIcon.png" alt="deleteIcon" class="removeBtn">Remove</button>
                         </div>
                     </div>
                     <p class="movie-summery">${savedMovie.Plot}</p>    

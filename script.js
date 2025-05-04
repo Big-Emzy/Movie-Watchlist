@@ -69,8 +69,10 @@ document.addEventListener('click', function(e) {
         })
             .then(res => res.json())
             .then(data => {
-                savedPlaylist.unshift(data)
-                localStorage.setItem('movieSaved', JSON.stringify(savedPlaylist))
+                if (!savedPlaylist.some(movies => movies.imdbID === selectedMovieId)) {
+                    savedPlaylist.unshift(data)
+                    localStorage.setItem('movieSaved', JSON.stringify(savedPlaylist))
+                }
             }
         )        
     }
