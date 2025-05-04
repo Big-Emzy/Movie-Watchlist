@@ -1,25 +1,27 @@
+//checks if there is local storage with the page reloads
+const checkLocalStorage = !localStorage ? 
+                            localStorage.setItem('movieSaved', JSON.stringify([])) : 
+                            JSON.parse(localStorage.getItem('movieSaved'))
+
+
+//fetch data from the omdb api 
 let movieTray = ''
-//let savedPlaylist = []
-let savedPlaylist = JSON.parse(localStorage.getItem('movieSaved'))
 let searchBtn = document.getElementById('search-btn')
-
-
-    searchBtn.addEventListener('click', function() {
-        movieTray = ''
-        const searchItem = document.getElementById('search-box')
-        fetch(`https://www.omdbapi.com/?s=${searchItem.value}&apikey=21488814&page=1`, {
-            method: 'GET'
-        })
-            .then(res => res.json())
-            .then(data => data.Search.forEach(movie => {
-                renderMovieDetails(movie.imdbID)
-            }  
-        )
-        
-    )
-        searchItem.value = ''
-        document.getElementById('exploring-errorMsg').style.display = 'none'   
+searchBtn.addEventListener('click', function() {
+    const searchItem = document.getElementById('search-box')
+    fetch(`https://www.omdbapi.com/?s=${searchItem.value}&apikey=21488814&page=1`, {
+        method: 'GET'
     })
+        .then(res => res.json())
+        .then(data => data.Search.forEach(movie => {
+            renderMovieDetails(movie.imdbID)
+        }  
+    )
+    
+)
+    searchItem.value = ''
+    document.getElementById('exploring-errorMsg').style.display = 'none'   
+})
 
 
 
@@ -60,6 +62,7 @@ function renderMovieDetails(movieId) {
   
 }
 
+//handles the movie selection and stores it to local storagg(and it makes sure movies are not added twice)
 
 document.addEventListener('click', function(e) {
     const selectedMovieId = e.target.parentElement.id
@@ -69,9 +72,9 @@ document.addEventListener('click', function(e) {
         })
             .then(res => res.json())
             .then(data => {
-                if (!savedPlaylist.some(movies => movies.imdbID === selectedMovieId)) {
-                    savedPlaylist.unshift(data)
-                    localStorage.setItem('movieSaved', JSON.stringify(savedPlaylist))
+                if (!checkLocalStorage.some(movies => movies.imdbID === selectedMovieId)) {
+                    checkLocalStorage.unshift(data)
+                    localStorage.setItem('movieSaved', JSON.stringify(checkLocalStorage))
                 }
             }
         )        

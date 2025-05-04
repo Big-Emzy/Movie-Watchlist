@@ -1,3 +1,4 @@
+//Rending the selected save moves on localstorage
 let savedData = []
 const masterWatchListBox = document.getElementById('masterWatchList-box')
 
@@ -32,7 +33,7 @@ const retrievedData = JSON.parse(localStorage.getItem('movieSaved'))
 masterWatchListBox.innerHTML = savedData
 
 
-
+//MOVIE DELETION
 masterWatchListBox.addEventListener('click',function(e) {
         if (e.target.classList.contains('remove-Btn')) {
             retrievedData.splice(e.target.parentElement.id, 1)
