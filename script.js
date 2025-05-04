@@ -1,7 +1,7 @@
 //checks if there is local storage with the page reloads
-const checkLocalStorage = !localStorage ? 
-                            localStorage.setItem('movieSaved', JSON.stringify([])) : 
-                            JSON.parse(localStorage.getItem('movieSaved'))
+const checksessionStorage = !sessionStorage ? 
+                            sessionStorage.setItem('movieSaved', JSON.stringify([])) : 
+                            JSON.parse(sessionStorage.getItem('movieSaved'))
 
 
 //fetch data from the omdb api 
@@ -72,9 +72,9 @@ document.addEventListener('click', function(e) {
         })
             .then(res => res.json())
             .then(data => {
-                if (!checkLocalStorage.some(movies => movies.imdbID === selectedMovieId)) {
-                    checkLocalStorage.unshift(data)
-                    localStorage.setItem('movieSaved', JSON.stringify(checkLocalStorage))
+                if (!checksessionStorage.some(movies => movies.imdbID === selectedMovieId)) {
+                    checksessionStorage.unshift(data)
+                    sessionStorage.setItem('movieSaved', JSON.stringify(checksessionStorage))
                 }
             }
         )        
