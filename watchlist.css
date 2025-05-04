@@ -13,6 +13,7 @@ body {
 .each-movies {
     width: 70%;
     display: flex;
+    align-items: center;
     gap: 53px;
     margin: auto;
     border-bottom: 2px solid #E5E7EB;
@@ -180,10 +181,10 @@ body {
 
 @media (max-width: 500px) {
     .each-movies {
-        height: 100px;
+        height: 180px;
         gap: 15px;
         align-items: center;
-        padding-bottom: 30px;
+        padding-bottom: 0px;
     }
     
     .movieBanner {
