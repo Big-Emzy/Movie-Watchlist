@@ -1,9 +1,9 @@
-let renderPlaylist = ''
+let savedData = []
 const masterWatchListBox = document.getElementById('masterWatchList-box')
 
 const retrievedData = JSON.parse(localStorage.getItem('movieSaved'))
-retrievedData.forEach(savedMovie => {
-    renderPlaylist += `
+    savedData = retrievedData.map((savedMovie, index) => {
+        return  `
             <div class="each-movies">
                 <div class="movieBanner-box">
                     <img src="${savedMovie.Poster}" alt="movie banner" class="movieBanner">
@@ -19,7 +19,7 @@ retrievedData.forEach(savedMovie => {
                             <p>${savedMovie.Runtime}</p>
                             <p>${savedMovie.Genre}</p>
                         </div>
-                        <div class="AddButton" id="${savedMovie.imdbID}">
+                        <div class="AddButton" id=${index}>
                             <button class="remove-Btn"><img src="img/removeIcon.png" alt="deleteIcon" class="removeBtn">Remove</button>
                         </div>
                     </div>
@@ -27,5 +27,17 @@ retrievedData.forEach(savedMovie => {
                 </div>
             </div>
     ` 
-return masterWatchListBox.innerHTML = renderPlaylist
+}).join(' ')
+
+masterWatchListBox.innerHTML = savedData
+
+
+
+masterWatchListBox.addEventListener('click',function(e) {
+        if (e.target.classList.contains('remove-Btn')) {
+            retrievedData.splice(e.target.parentElement.id, 1)
+            localStorage.setItem('movieSaved', JSON.stringify(retrievedData))
+            window.location.reload()
+        }
+    
 })
