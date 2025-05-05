@@ -8,14 +8,12 @@ body {
     margin-bottom: 50px;
 }
 
-
-
 .each-movies {
-    width: 70%;
+    width: 80%;
     display: flex;
     align-items: center;
     gap: 53px;
-    margin: auto;
+    margin: 30px auto;
     border-bottom: 2px solid #E5E7EB;
     padding-bottom: 50px;
 }
@@ -55,13 +53,13 @@ body {
 
 .movie-property {
     display: flex;
-    gap: 30px;
+    gap: 230px;
     color: #111827;
     font-family: 'Inter',sans-serif;
-    font-size: 23px;
+    font-size: 18px;
     font-weight: 400;
     line-height: 20px; /* 166.667% */
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .remove-Btn, .add-Btn {
@@ -80,15 +78,13 @@ body {
 .movie-summery {
     color: #6B7280;
     font-family: 'Inter',sans-serif;
-    font-size: 27px;
+    font-size: 30px;
     font-weight: 400;
-    line-height: 20px; /* 142.857% */
+    line-height: 40px; /* 142.857% */
+    margin-top: 15px;
 }
 
-.movie-summery > span {
-   display: block;
-   margin-top: 20px;
-}
+
 
 .eachMovie-rightSegment {
     display: flex;
@@ -98,7 +94,104 @@ body {
     /* border: 1px solid black; */
 }
 
-@media (max-width: 800px) {
+
+
+
+
+@media (max-width: 2000px) {
+
+
+.each-movies {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    gap: 53px;
+    margin: 30px auto;
+    border-bottom: 2px solid #E5E7EB;
+    padding-bottom: 50px;
+}
+
+.movieBanner {
+    width: 256px;
+    height: 316px;
+}
+
+.movie-NameBox {
+    display: flex;
+    align-items: center;
+}
+
+.movie-NameBox > h2 {
+    font-family: 'Inter',sans-serif;
+    font-size: 35px;
+    font-weight: 500;
+    line-height: 20px; /* 111.111% */
+}
+
+.ratingImage {
+    margin-left: 25px;
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+.movie-NameBox > p {
+    font-family: 'Inter',sans-serif;
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 20px; /* 166.667% */
+}
+
+
+
+.movie-property {
+    display: flex;
+    gap: 230px;
+    color: #111827;
+    font-family: 'Inter',sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 20px; /* 166.667% */
+    margin-top: 10px;
+}
+
+.remove-Btn, .add-Btn {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #111827;
+    font-family: 'Inter',sans-serif;
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 20px; /* 166.667% */
+    border: none;
+    background-color: transparent;
+}
+
+.movie-summery {
+    color: #6B7280;
+    font-family: 'Inter',sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 30px; /* 142.857% */
+    margin-top: 15px;
+}
+
+
+
+.eachMovie-rightSegment {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10%;
+    /* border: 1px solid black; */
+}
+
+}
+
+
+
+@media (max-width: 1400px) {
     .each-movies {
         width: 90%;
         height: 200px;
@@ -114,15 +207,15 @@ body {
     }
 
     .movieBanner-box {
-        width: 40%;
+        width: 20%;
     }
     
     .eachMovie-rightSegment {
         width: 70%;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        gap: 5%;
+        justify-content: space-between;
+        /* gap: 20%; */
         /* border: 1px solid black; */
     }
     
@@ -136,7 +229,7 @@ body {
     }
     
     .ratingImage {
-        margin-left: 25px;
+        margin-left: 100px;
         margin-right: 10px;
         width: 15px;
         height: 15px;
@@ -150,21 +243,23 @@ body {
     
     .movie-property {
         display: flex;
-        gap: 12px;
+        justify-content: space-between;
         font-size: 12px;
         line-height: 20px; /* 166.667% */
-        margin-top: 0px;
+        margin-top: 30px;
     }
+
     
     .remove-Btn {
         display: flex;
         align-items: center;
         gap: 7px;
-        font-size: 12px;
+        font-size: 15px;
     }
     
     .movie-summery {
-        font-size: 14px;
+        font-size: 15px;
+        margin-top: 15px;
     }
     
     .movie-summery > span {
@@ -179,7 +274,7 @@ body {
 }
 
 
-@media (max-width: 500px) {
+@media (max-width: 1000px) {
     .each-movies {
         height: 180px;
         gap: 15px;
@@ -211,7 +306,7 @@ body {
     }
     
     .movie-NameBox > h2 {
-        font-size: 14px;
+        font-size: 15px;
     }
     
     .ratingImage {
@@ -222,7 +317,7 @@ body {
     }
     
     .movie-NameBox > p {
-        font-size: 11px;
+        font-size: 13px;
     }
     
     
@@ -232,7 +327,7 @@ body {
         width: 100%;
         justify-content: space-between;
         gap: 0px;
-        font-size: 8.5px;
+        font-size: 9px;
         line-height: 10px; /* 166.667% */
         margin-top: 0px;
     }
@@ -242,7 +337,7 @@ body {
         align-items: center;
         gap: 3px;
         line-height: 15px;
-        font-size: 9px;
+        font-size: 10px;
     }
 
     /* .movie-minutes {
@@ -255,7 +350,7 @@ body {
     }
     
     .movie-summery {
-        font-size: 9px;
+        font-size: 10px;
         line-height: 15px;
     }
     
@@ -266,6 +361,19 @@ body {
     
  
 
+
+
+}
+
+@media (max-width: 300px) {
+    .each-movies {
+        height: 300px;
+        gap: 15px;
+        justify-content: space-around;
+        padding-bottom: 0px;
+        flex-direction: column;
+        width: 95%;
+    }
 
 
 }

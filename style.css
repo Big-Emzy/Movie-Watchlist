@@ -92,6 +92,25 @@ nav > a:hover {
     border: #D1D5DB;
 }
 
+#page-navBtn {
+    width: 80%; 
+    margin: 10px auto ;
+    display: none;
+    justify-content: space-between;
+
+}
+
+.navBtn {
+    width: 20%;
+    color:  #374151;
+    font-family: 'Inter',sans-serif;
+    padding: 4px;
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 20px; 
+    border: #D1D5DB;
+}
+
 main {
     margin-top: 110px;
 }
@@ -108,9 +127,9 @@ main {
     text-align: center;
 }
 
-.show{
-    display: block;
-}
+/* .show{
+    display: flex;
+} */
 
 #error-msg {
     display: flex;
@@ -140,8 +159,7 @@ main {
     display: block;
 }
 
-
-@media (max-width: 800px) {
+@media (max-width: 1200px) {
     nav {
         position: relative;
         display: flex;
@@ -182,6 +200,112 @@ main {
     
     #search-btn {
         font-size: 18px;
+    }
+
+    .navBtn {
+        font-size: 18px;
+        padding: 4px;
+    }
+
+    main {
+        margin-top: 130px;
+    }
+
+    #exploring-errorMsg {
+        display: block;
+    }
+    
+    #start-exploring {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 571px;
+        text-align: center;
+    }
+    
+    .show{
+        display: block;
+    }
+    
+    #error-msg {
+        display: flex;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        height: 571px;
+        text-align: center;
+    }
+    
+    #filmTray {
+        width: 90px;
+        height: 82px;
+        margin-bottom: 12px;
+    }
+    
+    #start-exploring > h2, #error-msg > h2 {
+        color: #DFDDDD;
+        font-family: 'Inter',sans-serif;
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 20px; /* 111.111% */
+    }
+    
+    #another-search {
+        margin-top: 20px;
+        display: block;
+    }
+
+
+
+     
+  }
+
+@media (max-width: 1000px) {
+    nav {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 30%;
+        justify-content: center;
+        align-items: flex-start;
+        height: 200px;
+        padding: 0px 30px;
+    }
+    
+    nav > h1 {
+        font-size: 50px;
+    }
+    
+    nav > a {
+        font-size: 25px;
+    }
+
+    #searchBoxContainer {
+        width: 90%;
+        height: 40px;
+        margin-top: 300px;
+        
+    }
+    
+    #search-box {
+        padding-left: 40px;
+        background-size: 20px 18px;
+        background-position: 10px 10px;
+    }
+    
+    #search-box::placeholder {
+        font-size: 18px;
+        font-weight: 500;
+        
+    }
+    
+    #search-btn {
+        font-size: 18px;
+    }
+
+    .navBtn {
+        font-size: 18px;
+        padding: 4px;
     }
 
     main {
@@ -274,6 +398,11 @@ main {
     
     #search-btn {
         font-size: 10px;
+    }
+
+    .navBtn {
+       font-size: 10px;
+       padding: 4px;
     }
 
     .addIcon, .removeIcon {

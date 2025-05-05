@@ -1,26 +1,23 @@
+const pageNav = document.getElementById('page-navBtn')
+const previousBtn = document.getElementById('prev')
+const nextBtn = document.getElementById('next')
+
 //checks if there is local storage with the page reloads
-const checksessionStorage = !sessionStorage ? 
-                            sessionStorage.setItem('movieSaved', JSON.stringify([])) : 
-                            JSON.parse(sessionStorage.getItem('movieSaved'))
+const checklocalStorage = !localStorage ? 
+                            localStorage.setItem('movieSaved', JSON.stringify([])) : 
+                            JSON.parse(localStorage.getItem('movieSaved'))
 
 
 //fetch data from the omdb api 
 let movieTray = ''
 let searchBtn = document.getElementById('search-btn')
+
 searchBtn.addEventListener('click', function() {
-    const searchItem = document.getElementById('search-box')
-    fetch(`https://www.omdbapi.com/?s=${searchItem.value}&apikey=21488814&page=1`, {
-        method: 'GET'
-    })
-        .then(res => res.json())
-        .then(data => data.Search.forEach(movie => {
-            renderMovieDetails(movie.imdbID)
-        }  
-    )
-    
-)
-    searchItem.value = ''
-    document.getElementById('exploring-errorMsg').style.display = 'none'   
+    fetchDatafromApi(0)
+    document.getElementById('exploring-errorMsg').style.display = 'none'
+    pageNav.style.display = 'flex'
+    previousBtn.disabled = true
+
 })
 
 
@@ -72,12 +69,72 @@ document.addEventListener('click', function(e) {
         })
             .then(res => res.json())
             .then(data => {
-                if (!checksessionStorage.some(movies => movies.imdbID === selectedMovieId)) {
-                    checksessionStorage.unshift(data)
-                    sessionStorage.setItem('movieSaved', JSON.stringify(checksessionStorage))
+                if (!checklocalStorage.some(movies => movies.imdbID === selectedMovieId)) {
+                    checklocalStorage.unshift(data)
+                    localStorage.setItem('movieSaved', JSON.stringify(checklocalStorage))
                 }
             }
         )        
     }
+})
+
+//fetch data from api with the previous and next button
+
+
+
+
+let pageNumber = 1
+nextBtn.addEventListener('click', function() {
+    fetchDatafromApi(pageNumber)
+    previousBtn.disabled = false
+    pageForPrevious = pageNumber++
+    pageForPrevious++
+})
+
+
+
+
+
+function fetchDatafromApi(page) {
+    movieTray = ''
+    const searchItem = document.getElementById('search-box')
+    const cleanSearchItem = searchItem.value.trim()
+    page++
+    fetch(`https://www.omdbapi.com/?s=${cleanSearchItem}&apikey=21488814&page=${page}`, {
+        method: 'GET'
+    })
+        .then(res => res.json())
+        .then(data => data.Search.forEach(movie => {
+            renderMovieDetails(movie.imdbID)
+        }  
+    )
+    
+    )
+    
+}
+
+
+
+
+previousBtn.addEventListener('click', function() {
+    movieTray = ''
+    const searchItem = document.getElementById('search-box')
+    const cleanSearchItem = searchItem.value.trim()
+    pageForPrevious--
+    fetch(`https://www.omdbapi.com/?s=${cleanSearchItem}&apikey=21488814&page=${pageForPrevious}`, {
+        method: 'GET'
+    })
+        .then(res => res.json())
+        .then(data => data.Search.forEach(movie => {
+            renderMovieDetails(movie.imdbID)
+        }  
+    )
+    
+    )
+    console.log(pageForPrevious)
+    if (pageForPrevious === 1) {
+        previousBtn.disabled = true
+    }
+
 })
 

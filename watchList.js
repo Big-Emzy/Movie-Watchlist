@@ -1,8 +1,8 @@
-//Rending the selected save moves on sessionStorage
+//Rending the selected save moves on localStorage
 let savedData = []
 const masterWatchListBox = document.getElementById('masterWatchList-box')
 
-const retrievedData = JSON.parse(sessionStorage.getItem('movieSaved'))
+const retrievedData = JSON.parse(localStorage.getItem('movieSaved'))
     savedData = retrievedData.map((savedMovie, index) => {
         return  `
             <div class="each-movies">
@@ -37,7 +37,7 @@ masterWatchListBox.innerHTML = savedData
 masterWatchListBox.addEventListener('click',function(e) {
         if (e.target.classList.contains('remove-Btn')) {
             retrievedData.splice(e.target.parentElement.id, 1)
-            sessionStorage.setItem('movieSaved', JSON.stringify(retrievedData))
+            localStorage.setItem('movieSaved', JSON.stringify(retrievedData))
             window.location.reload()
         }
     
